@@ -3,7 +3,7 @@
    authored here — nothing comes from user input. */
 
 window.I18N = {
-  order: ['en', 'de', 'es'],
+  order: ['en', 'it', 'de', 'es'],
 
   en: {
     'html.lang': 'en',
@@ -93,6 +93,96 @@ window.I18N = {
     'contact.title': 'Happy to talk shop',
     'contact.lede': 'If you are working on something in computer vision or applied LLMs — or considering it — I am glad to compare notes.',
     'footer.place': 'Modena, Italy'
+  },
+
+  it: {
+    'html.lang': 'it',
+    'meta.title': 'Brandon Willy Viglianisi — ML & AI Engineer',
+    'meta.description': 'ML & AI engineer a Modena. Sistemi di computer vision e LLM, dal prototipo di ricerca alla produzione. Co-fondatore di Ardora AI.',
+
+    'skip': 'Vai al contenuto',
+    'lang.label': 'Lingua',
+    'nav.work': 'Esperienza',
+    'nav.projects': 'Progetti',
+    'nav.background': 'Percorso',
+    'nav.contact': 'Contatti',
+    'now': 'oggi',
+
+    'intro.eyebrow': 'Modena, Italia',
+    'intro.name': 'Brandon Willy<br><em>Viglianisi</em>',
+    'intro.lede': 'ML &amp; AI engineer. Costruisco sistemi di computer vision e di LLM, e li porto dal prototipo di ricerca a qualcosa su cui una fabbrica, un magazzino o una clinica possano contare.',
+    'intro.meta': 'Co-fondatore e lead ML engineer in <strong>Ardora AI</strong> · ML engineer in <strong>GoatAI</strong> · Docente di AI',
+    'intro.cta1': 'Di cosa mi occupo',
+    'intro.cta2': 'Mettiamoci in contatto',
+    'intro.alt': 'Ritratto di Brandon Willy Viglianisi',
+
+    'focus.label': 'Aree',
+    'focus.cv.h': 'Computer vision',
+    'focus.cv.p': 'Controllo qualità visivo su linee di produzione, calibrazione e misura multi-camera, stima della posa 3D, localizzazione visiva.',
+    'focus.llm.h': 'LLM e agenti',
+    'focus.llm.p': 'Pipeline multi-agente, retrieval-augmented generation con ricerca semantica, flussi di generazione documentale che resistono a una revisione.',
+    'focus.dl.h': 'Ricerca in deep learning',
+    'focus.dl.p': 'Architetture Transformer e token mixing, addestramento non supervisionato, previsione di serie temporali, training su cluster HPC.',
+    'focus.be.h': 'Backend e infrastruttura',
+    'focus.be.p': 'Servizi in Python e FastAPI, deploy serverless su AWS: l’impiantistica che tiene utile un modello in produzione.',
+
+    'work.label': 'Esperienza',
+    'work.title': 'Qualche anno tra la ricerca e il reparto produzione',
+    'work.modena': 'Modena, Italia',
+    'work.ardora.place': 'Milano, Italia',
+    'work.ardora.role': 'Co-fondatore e lead ML engineer',
+    'work.ardora.p': 'Ho progettato e costruito <strong>CertifAI Med</strong>, una piattaforma SaaS in cui agenti basati su LLM compongono la documentazione regolatoria biomedica. Pipeline multi-agente su AWS Bedrock con ricerca semantica su OpenSearch, sopra un backend serverless in FastAPI. Circa il 40% di tempo in meno nella preparazione del fascicolo MDR per i team che la usano.',
+    'work.goatai.role': 'Machine learning engineer',
+    'work.goatai.p': 'Controllo qualità visivo in tempo reale per la produzione di piastrelle ceramiche: camere di area e lineari che rilevano difetti superficiali con precisione sotto il millimetro. Inoltre una pipeline di calibrazione multi-camera accurata al decimo di millimetro e un sistema di stima della posa 3D a otto camere per l’analisi degli esercizi in palestra, portato dal proof of concept alla produzione.',
+    'work.lect.role': 'Docente di AI',
+    'work.lect.org': 'In proprio',
+    'work.lect.p': 'Ho progettato e tenuto corsi di AI generativa applicata per circa 150 sviluppatori e manager, con l’accento sulle tecniche che sopravvivono al contatto con la produzione.',
+    'work.aimage.role': 'Assegnista di ricerca industriale',
+    'work.aimage.org': 'AImageLab — Università di Modena e Reggio Emilia',
+    'work.aimage.p': 'Quattro anni di ricerca applicata con l’industria. Un sistema di localizzazione visiva per veicoli autonomi in magazzini automatizzati, addestrato in modo non supervisionato e accurato sotto i 10 cm, come ridondanza al LiDAR. Prima, un sistema in tempo reale per il rilevamento dei furti alle casse self-checkout, costruito su tracking visivo con Transformer, riconoscimento di oggetti e previsione di serie temporali: 97% di accuratezza sui primi dati in campo, poi consegnato al cliente per la scalata autonoma.',
+    'work.footnote': 'Progetti di ricerca e industriali svolti con partner tra cui Datalogic, E80 Group e Technogym.',
+
+    'tag.cv': 'Computer vision',
+    'tag.calib': 'Calibrazione camere',
+    'tag.pose': 'Stima della posa',
+    'tag.unsup': 'Apprendimento non supervisionato',
+
+    'proj.label': 'Progetti',
+    'proj.title': 'Cosa ho costruito di recente',
+    'proj.lede': 'La maggior parte del lavoro recente sta in repository private e di clienti, quindi questo è solo un quadro parziale — dà però un’idea del tipo di problemi di cui mi occupo.',
+    'proj.kind': 'Privato',
+    'proj.c1.h': 'Ispezione automatica di una linea ceramica',
+    'proj.c1.p': 'Ispezione visiva multi-camera dei bordi delle piastrelle in produzione continua, con rilevamento dei difetti e galleria live per l’operatore.',
+    'proj.c2.h': 'Inserimento ordini integrato con l’ERP',
+    'proj.c2.p': 'Uno strumento web che legge l’anagrafica dall’ERP aziendale e vi riscrive gli ordini di vendita, al posto di un flusso su fogli di calcolo.',
+    'proj.c3.h': 'Analisi del movimento sul dispositivo',
+    'proj.c3.p': 'Un’app mobile che misura l’esecuzione degli esercizi dal flusso della fotocamera, interamente sul telefono, e trasforma la sessione in un report leggibile.',
+    'proj.c4.h': 'Rendere leggibili i documenti densi',
+    'proj.c4.p': 'Due strumenti nello stesso spirito: uno spiega una busta paga voce per voce, l’altro rende confrontabili a colpo d’occhio i passaporti digitali di prodotto.',
+    'proj.repos': 'Repository pubbliche',
+    'repo.visiocosm': 'Progetto di robotica basato sulla visione — Smart Robotics, UniMoRe',
+    'repo.slicing.a': 'Ordered slicing di reti overlay',
+    'repo.slicing': 'AI distribuita — simulazione in NetLogo di reti overlay su larga scala',
+    'repo.splash': 'IoT e sistemi intelligenti 3D — C++',
+    'repo.storage.a': 'Sistema di gestione del magazzino',
+    'repo.storage': 'Sistemi embedded e real-time — C++',
+
+    'edu.label': 'Formazione',
+    'edu.su.h': 'Master annuale in IT Project Management',
+    'edu.su.org': 'Università di Stoccolma',
+    'edu.msc.h': 'Laurea magistrale in Ingegneria Informatica — AI Engineering',
+    'edu.msc.org': 'Università di Modena e Reggio Emilia',
+    'edu.msc.p': 'Tesi: <em>Revisiting token mixing in Transformer architectures</em>',
+    'edu.bsc.h': 'Laurea triennale in Ingegneria dell’Informazione',
+    'edu.bsc.org': 'Università Mediterranea di Reggio Calabria',
+    'tools.label': 'Strumenti',
+    'langs.label': 'Lingue',
+    'langs.p': 'Italiano (madrelingua) · Inglese (fluente) · Tedesco (base)',
+
+    'contact.label': 'Contatti',
+    'contact.title': 'Volentieri quattro chiacchiere di mestiere',
+    'contact.lede': 'Se stai lavorando a qualcosa di computer vision o di LLM applicati — o se ci stai pensando — mi fa piacere confrontarmi.',
+    'footer.place': 'Modena, Italia'
   },
 
   de: {
