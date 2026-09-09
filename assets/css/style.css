@@ -106,9 +106,29 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .topbar nav a:hover { color: var(--ink); border-bottom-color: var(--accent); }
 
-@media (max-width: 480px) {
-  .topbar { flex-direction: column; align-items: flex-start; gap: .6rem; }
-  .topbar nav { flex-wrap: wrap; }
+/* Language switch */
+
+.lang { display: flex; gap: .15rem; }
+.lang button {
+  font-family: var(--mono);
+  font-size: .72rem; letter-spacing: .08em;
+  color: var(--ink-faint);
+  background: none;
+  border: 0;
+  border-radius: 3px;
+  padding: .25rem .4rem;
+  cursor: pointer;
+  transition: color .2s, background .2s;
+}
+.lang button:hover { color: var(--ink); }
+.lang button.on { color: var(--accent); background: var(--accent-sf); }
+
+/* Without JS there is nothing to switch to: English is the page itself. */
+html:not(.js-i18n) .lang { display: none; }
+
+@media (max-width: 560px) {
+  .topbar { flex-wrap: wrap; row-gap: .6rem; }
+  .topbar nav { flex-wrap: wrap; order: 3; width: 100%; }
 }
 
 /* ---------- Shared section furniture ---------- */

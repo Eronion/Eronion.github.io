@@ -28,16 +28,21 @@
 
 <body>
 
-  <a class="skip-link" href="#main">Skip to content</a>
+  <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
 
   <header class="topbar">
     <a class="mark" href="#top" aria-label="Back to top">BV</a>
     <nav aria-label="Sections">
-      <a href="#work">Work</a>
-      <a href="#projects">Projects</a>
-      <a href="#background">Background</a>
-      <a href="#contact">Contact</a>
+      <a href="#work" data-i18n="nav.work">Work</a>
+      <a href="#projects" data-i18n="nav.projects">Projects</a>
+      <a href="#background" data-i18n="nav.background">Background</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
     </nav>
+    <div class="lang" role="group" data-i18n-label="lang.label" aria-label="Language">
+      <button type="button" data-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-lang="de" aria-pressed="false">DE</button>
+      <button type="button" data-lang="es" aria-pressed="false">ES</button>
+    </div>
   </header>
 
   <main id="main">
@@ -46,23 +51,23 @@
     <section id="top" class="intro">
       <div class="wrap intro-grid">
         <div class="intro-text reveal">
-          <p class="eyebrow">Modena, Italy</p>
-          <h1>Brandon Willy<br><em>Viglianisi</em></h1>
-          <p class="lede">
+          <p class="eyebrow" data-i18n="intro.eyebrow">Modena, Italy</p>
+          <h1 data-i18n="intro.name">Brandon Willy<br><em>Viglianisi</em></h1>
+          <p class="lede" data-i18n="intro.lede">
             ML &amp; AI engineer. I build computer vision and LLM systems, and take them from
             research prototype to something a factory, a warehouse or a clinic can rely on.
           </p>
-          <p class="intro-meta">
+          <p class="intro-meta" data-i18n="intro.meta">
             Co-founder &amp; lead ML engineer at <strong>Ardora AI</strong> · ML engineer at <strong>GoatAI</strong> · AI lecturer
           </p>
           <div class="actions">
-            <a class="btn" href="#work">See what I work on</a>
-            <a class="btn ghost" href="#contact">Get in touch</a>
+            <a class="btn" href="#work" data-i18n="intro.cta1">See what I work on</a>
+            <a class="btn ghost" href="#contact" data-i18n="intro.cta2">Get in touch</a>
           </div>
         </div>
         <figure class="portrait reveal">
           <img src="assets/img/profile.jpg" width="600" height="600"
-               alt="Portrait of Brandon Willy Viglianisi" fetchpriority="high">
+               alt="Portrait of Brandon Willy Viglianisi" data-i18n-alt="intro.alt" fetchpriority="high">
         </figure>
       </div>
     </section>
@@ -70,26 +75,26 @@
     <!-- Focus -->
     <section id="focus" class="section alt">
       <div class="wrap">
-        <p class="label">Focus</p>
+        <p class="label" data-i18n="focus.label">Focus</p>
         <div class="focus-grid">
           <article class="reveal">
-            <h3>Computer vision</h3>
-            <p>Visual quality control on production lines, multi-camera calibration and measurement,
+            <h3 data-i18n="focus.cv.h">Computer vision</h3>
+            <p data-i18n="focus.cv.p">Visual quality control on production lines, multi-camera calibration and measurement,
                3D human pose estimation, visual localization.</p>
           </article>
           <article class="reveal">
-            <h3>LLMs &amp; agents</h3>
-            <p>Multi-agent pipelines, retrieval-augmented generation with semantic search,
+            <h3 data-i18n="focus.llm.h">LLMs &amp; agents</h3>
+            <p data-i18n="focus.llm.p">Multi-agent pipelines, retrieval-augmented generation with semantic search,
                document generation workflows that hold up under review.</p>
           </article>
           <article class="reveal">
-            <h3>Deep learning research</h3>
-            <p>Transformer architectures and token mixing, unsupervised training,
+            <h3 data-i18n="focus.dl.h">Deep learning research</h3>
+            <p data-i18n="focus.dl.p">Transformer architectures and token mixing, unsupervised training,
                time-series forecasting, training at scale on HPC clusters.</p>
           </article>
           <article class="reveal">
-            <h3>Backend &amp; infrastructure</h3>
-            <p>Python and FastAPI services, serverless deployments on AWS,
+            <h3 data-i18n="focus.be.h">Backend &amp; infrastructure</h3>
+            <p data-i18n="focus.be.p">Python and FastAPI services, serverless deployments on AWS,
                the plumbing that keeps a model useful in production.</p>
           </article>
         </div>
@@ -99,20 +104,20 @@
     <!-- Experience -->
     <section id="work" class="section">
       <div class="wrap">
-        <p class="label">Experience</p>
-        <h2 class="section-title">A few years between research and the shop floor</h2>
+        <p class="label" data-i18n="work.label">Experience</p>
+        <h2 class="section-title" data-i18n="work.title">A few years between research and the shop floor</h2>
 
         <ol class="timeline">
 
           <li class="reveal">
             <div class="when">
-              <span class="date">2025 — now</span>
-              <span class="place">Milan, Italy</span>
+              <span class="date">2025 — <span data-i18n="now">now</span></span>
+              <span class="place" data-i18n="work.ardora.place">Milan, Italy</span>
             </div>
             <div class="what">
-              <h3>Co-founder &amp; lead ML engineer</h3>
+              <h3 data-i18n="work.ardora.role">Co-founder &amp; lead ML engineer</h3>
               <p class="org">Ardora AI srl</p>
-              <p>Architected and built <strong>CertifAI Med</strong>, a SaaS platform where LLM-powered
+              <p data-i18n="work.ardora.p">Architected and built <strong>CertifAI Med</strong>, a SaaS platform where LLM-powered
                  agents assemble biomedical regulatory documentation. Multi-agent pipelines on
                  AWS Bedrock with semantic search over OpenSearch, on a serverless FastAPI backend.
                  Roughly a 40% cut in MDR preparation time for the teams using it.</p>
@@ -124,32 +129,32 @@
 
           <li class="reveal">
             <div class="when">
-              <span class="date">2023 — now</span>
-              <span class="place">Modena, Italy</span>
+              <span class="date">2023 — <span data-i18n="now">now</span></span>
+              <span class="place" data-i18n="work.modena">Modena, Italy</span>
             </div>
             <div class="what">
-              <h3>Machine learning engineer</h3>
+              <h3 data-i18n="work.goatai.role">Machine learning engineer</h3>
               <p class="org">GoatAI srl</p>
-              <p>Real-time visual quality control for ceramic tile manufacturing, using area and
+              <p data-i18n="work.goatai.p">Real-time visual quality control for ceramic tile manufacturing, using area and
                  line-scan cameras to catch surface defects at sub-millimetre precision. Also a
                  custom multi-camera calibration pipeline accurate to a tenth of a millimetre, and
                  an eight-camera 3D pose estimation system for gym exercise analysis, carried from
                  proof of concept to production.</p>
               <ul class="tags">
-                <li>Computer vision</li><li>Camera calibration</li><li>Pose estimation</li><li>Transformers</li>
+                <li data-i18n="tag.cv">Computer vision</li><li data-i18n="tag.calib">Camera calibration</li><li data-i18n="tag.pose">Pose estimation</li><li>Transformers</li>
               </ul>
             </div>
           </li>
 
           <li class="reveal">
             <div class="when">
-              <span class="date">2025 — now</span>
-              <span class="place">Modena, Italy</span>
+              <span class="date">2025 — <span data-i18n="now">now</span></span>
+              <span class="place" data-i18n="work.modena">Modena, Italy</span>
             </div>
             <div class="what">
-              <h3>AI lecturer</h3>
-              <p class="org">Independent</p>
-              <p>Designed and delivered courses on applied generative AI for around 150 developers
+              <h3 data-i18n="work.lect.role">AI lecturer</h3>
+              <p class="org" data-i18n="work.lect.org">Independent</p>
+              <p data-i18n="work.lect.p">Designed and delivered courses on applied generative AI for around 150 developers
                  and managers — the emphasis on techniques that survive contact with production.</p>
             </div>
           </li>
@@ -157,26 +162,26 @@
           <li class="reveal">
             <div class="when">
               <span class="date">2021 — 2026</span>
-              <span class="place">Modena, Italy</span>
+              <span class="place" data-i18n="work.modena">Modena, Italy</span>
             </div>
             <div class="what">
-              <h3>Industrial research fellow</h3>
-              <p class="org">AImageLab — University of Modena and Reggio Emilia</p>
-              <p>Four years of applied research with industry. A visual localization system for
+              <h3 data-i18n="work.aimage.role">Industrial research fellow</h3>
+              <p class="org" data-i18n="work.aimage.org">AImageLab — University of Modena and Reggio Emilia</p>
+              <p data-i18n="work.aimage.p">Four years of applied research with industry. A visual localization system for
                  autonomous vehicles in automated warehouses, trained unsupervised and accurate to
                  under 10 cm as a redundant backup to LiDAR. Before that, a real-time self-checkout
                  theft detection system built on Transformer-based visual tracking, object
                  recognition and time-series forecasting — 97% accuracy on initial deployment data,
                  handed off to the client for independent scaling.</p>
               <ul class="tags">
-                <li>PyTorch</li><li>Transformers</li><li>Unsupervised learning</li><li>HPC</li>
+                <li>PyTorch</li><li>Transformers</li><li data-i18n="tag.unsup">Unsupervised learning</li><li>HPC</li>
               </ul>
             </div>
           </li>
 
         </ol>
 
-        <p class="footnote">Research and industrial projects carried out with partners including
+        <p class="footnote" data-i18n="work.footnote">Research and industrial projects carried out with partners including
           Datalogic, E80 Group and Technogym.</p>
       </div>
     </section>
@@ -184,55 +189,55 @@
     <!-- Projects -->
     <section id="projects" class="section alt">
       <div class="wrap">
-        <p class="label">Projects</p>
-        <h2 class="section-title">What I have been building lately</h2>
-        <p class="section-lede">Most of my recent work sits in private and client repositories, so
+        <p class="label" data-i18n="proj.label">Projects</p>
+        <h2 class="section-title" data-i18n="proj.title">What I have been building lately</h2>
+        <p class="section-lede" data-i18n="proj.lede">Most of my recent work sits in private and client repositories, so
           this is only a partial picture — but it gives a sense of the kind of problems I take on.</p>
 
         <div class="cards">
           <article class="card reveal">
-            <span class="card-kind">Private</span>
-            <h3>Automated inspection for a ceramics line</h3>
-            <p>Multi-camera visual inspection of tile edges in continuous production, with defect
+            <span class="card-kind" data-i18n="proj.kind">Private</span>
+            <h3 data-i18n="proj.c1.h">Automated inspection for a ceramics line</h3>
+            <p data-i18n="proj.c1.p">Multi-camera visual inspection of tile edges in continuous production, with defect
                detection and a live operator gallery.</p>
           </article>
           <article class="card reveal">
-            <span class="card-kind">Private</span>
-            <h3>ERP-integrated order entry</h3>
-            <p>A web tool that reads master data from a company's ERP and writes sales orders back
+            <span class="card-kind" data-i18n="proj.kind">Private</span>
+            <h3 data-i18n="proj.c2.h">ERP-integrated order entry</h3>
+            <p data-i18n="proj.c2.p">A web tool that reads master data from a company's ERP and writes sales orders back
                into it, replacing a spreadsheet workflow.</p>
           </article>
           <article class="card reveal">
-            <span class="card-kind">Private</span>
-            <h3>On-device movement analysis</h3>
-            <p>A mobile app that measures exercise form from the camera stream, entirely on the
+            <span class="card-kind" data-i18n="proj.kind">Private</span>
+            <h3 data-i18n="proj.c3.h">On-device movement analysis</h3>
+            <p data-i18n="proj.c3.p">A mobile app that measures exercise form from the camera stream, entirely on the
                phone, and turns a session into a readable report.</p>
           </article>
           <article class="card reveal">
-            <span class="card-kind">Private</span>
-            <h3>Making dense documents readable</h3>
-            <p>Two tools in the same spirit: one explains a payslip line by line, the other makes
+            <span class="card-kind" data-i18n="proj.kind">Private</span>
+            <h3 data-i18n="proj.c4.h">Making dense documents readable</h3>
+            <p data-i18n="proj.c4.p">Two tools in the same spirit: one explains a payslip line by line, the other makes
                digital product passports comparable at a glance.</p>
           </article>
         </div>
 
-        <p class="label spaced">Public repositories</p>
+        <p class="label spaced" data-i18n="proj.repos">Public repositories</p>
         <ul class="repos">
           <li class="reveal">
             <a href="https://github.com/Eronion/VisioCoSM" target="_blank" rel="noopener">VisioCoSM</a>
-            <span>Vision-based robotics project — Smart Robotics, UniMoRe</span>
+            <span data-i18n="repo.visiocosm">Vision-based robotics project — Smart Robotics, UniMoRe</span>
           </li>
           <li class="reveal">
-            <a href="https://github.com/Eronion/Ordered_Slicing_of_Very_Large_Scale_Overlay_Networks" target="_blank" rel="noopener">Ordered slicing of overlay networks</a>
-            <span>Distributed AI — NetLogo simulation of large-scale overlay networks</span>
+            <a href="https://github.com/Eronion/Ordered_Slicing_of_Very_Large_Scale_Overlay_Networks" target="_blank" rel="noopener" data-i18n="repo.slicing.a">Ordered slicing of overlay networks</a>
+            <span data-i18n="repo.slicing">Distributed AI — NetLogo simulation of large-scale overlay networks</span>
           </li>
           <li class="reveal">
             <a href="https://github.com/Eronion/Professor_Splash" target="_blank" rel="noopener">Professor Splash</a>
-            <span>IoT &amp; 3D intelligent systems — C++</span>
+            <span data-i18n="repo.splash">IoT &amp; 3D intelligent systems — C++</span>
           </li>
           <li class="reveal">
-            <a href="https://github.com/Eronion/Storage_management_system" target="_blank" rel="noopener">Storage management system</a>
-            <span>Embedded &amp; real-time systems — C++</span>
+            <a href="https://github.com/Eronion/Storage_management_system" target="_blank" rel="noopener" data-i18n="repo.storage.a">Storage management system</a>
+            <span data-i18n="repo.storage">Embedded &amp; real-time systems — C++</span>
           </li>
         </ul>
       </div>
@@ -242,35 +247,35 @@
     <section id="background" class="section">
       <div class="wrap background-grid">
         <div>
-          <p class="label">Education</p>
+          <p class="label" data-i18n="edu.label">Education</p>
           <ul class="edu">
             <li class="reveal">
-              <span class="date">2025 — now</span>
-              <h3>One-year master's in IT Project Management</h3>
-              <p class="org">Stockholm University</p>
+              <span class="date">2025 — <span data-i18n="now">now</span></span>
+              <h3 data-i18n="edu.su.h">One-year master's in IT Project Management</h3>
+              <p class="org" data-i18n="edu.su.org">Stockholm University</p>
             </li>
             <li class="reveal">
               <span class="date">2020 — 2022</span>
-              <h3>MSc Computer Engineering — AI Engineering</h3>
-              <p class="org">University of Modena and Reggio Emilia</p>
-              <p>Thesis: <em>Revisiting token mixing in Transformer architectures</em></p>
+              <h3 data-i18n="edu.msc.h">MSc Computer Engineering — AI Engineering</h3>
+              <p class="org" data-i18n="edu.msc.org">University of Modena and Reggio Emilia</p>
+              <p data-i18n="edu.msc.p">Thesis: <em>Revisiting token mixing in Transformer architectures</em></p>
             </li>
             <li class="reveal">
               <span class="date">2017 — 2020</span>
-              <h3>BSc Information Engineering</h3>
-              <p class="org">Mediterranean University of Reggio Calabria</p>
+              <h3 data-i18n="edu.bsc.h">BSc Information Engineering</h3>
+              <p class="org" data-i18n="edu.bsc.org">Mediterranean University of Reggio Calabria</p>
             </li>
           </ul>
         </div>
         <div>
-          <p class="label">Toolbox</p>
+          <p class="label" data-i18n="tools.label">Toolbox</p>
           <ul class="stack reveal">
             <li>Python</li><li>PyTorch</li><li>LangChain</li><li>HuggingFace Transformers</li>
             <li>FastAPI</li><li>AWS Bedrock</li><li>AWS Lambda</li><li>OpenSearch</li>
             <li>Docker</li><li>Flutter</li><li>Git</li>
           </ul>
-          <p class="label spaced">Languages</p>
-          <p class="plain reveal">Italian (native) · English (fluent) · German (beginner)</p>
+          <p class="label spaced" data-i18n="langs.label">Languages</p>
+          <p class="plain reveal" data-i18n="langs.p">Italian (native) · English (fluent) · German (beginner)</p>
         </div>
       </div>
     </section>
@@ -278,9 +283,9 @@
     <!-- Contact -->
     <section id="contact" class="section alt">
       <div class="wrap contact">
-        <p class="label">Contact</p>
-        <h2 class="section-title">Happy to talk shop</h2>
-        <p class="section-lede">If you are working on something in computer vision or applied LLMs —
+        <p class="label" data-i18n="contact.label">Contact</p>
+        <h2 class="section-title" data-i18n="contact.title">Happy to talk shop</h2>
+        <p class="section-lede" data-i18n="contact.lede">If you are working on something in computer vision or applied LLMs —
           or considering it — I am glad to compare notes.</p>
         <ul class="links reveal">
           <li><a href="mailto:brandon.viglianisi@gmail.com">brandon.viglianisi@gmail.com</a></li>
@@ -295,10 +300,11 @@
   <footer>
     <div class="wrap">
       <span>Brandon Willy Viglianisi</span>
-      <span>Modena, Italy</span>
+      <span data-i18n="footer.place">Modena, Italy</span>
     </div>
   </footer>
 
+  <script src="assets/js/i18n.js"></script>
   <script src="assets/js/main.js"></script>
 
 </body>
