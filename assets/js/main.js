@@ -4,6 +4,9 @@
 
   var root = document.documentElement;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var each = function (sel, fn) { Array.prototype.forEach.call(document.querySelectorAll(sel), fn); };
+
+  root.classList.add('js');
 
   /* ---------- Language ---------- */
 
@@ -11,6 +14,15 @@
   var dict = window.I18N || {};
   var available = dict.order || [DEFAULT];
   var buttons = Array.prototype.slice.call(document.querySelectorAll('.lang [data-lang]'));
+
+  /* English lives in the markup: snapshot it once so switching back needs no second copy. */
+  var english = { 'html.lang': 'en', 'meta.title': document.title };
+  var descEl = document.querySelector('meta[name="description"]');
+  if (descEl) english['meta.description'] = descEl.getAttribute('content');
+  each('[data-i18n]', function (el) { english[el.getAttribute('data-i18n')] = el.innerHTML; });
+  each('[data-i18n-alt]', function (el) { english[el.getAttribute('data-i18n-alt')] = el.getAttribute('alt'); });
+  each('[data-i18n-label]', function (el) { english[el.getAttribute('data-i18n-label')] = el.getAttribute('aria-label'); });
+  dict.en = english;
 
   function supported(lang) {
     return lang && available.indexOf(lang) !== -1 ? lang : null;
@@ -32,27 +44,17 @@
   function apply(lang) {
     var strings = dict[lang];
     if (!strings) return;
+    var get = function (key) {
+      return typeof strings[key] === 'string' ? strings[key] : english[key];
+    };
 
-    root.setAttribute('lang', strings['html.lang'] || lang);
+    root.setAttribute('lang', get('html.lang') || lang);
+    document.title = get('meta.title');
+    if (descEl) descEl.setAttribute('content', get('meta.description'));
 
-    if (strings['meta.title']) document.title = strings['meta.title'];
-    var desc = document.querySelector('meta[name="description"]');
-    if (desc && strings['meta.description']) desc.setAttribute('content', strings['meta.description']);
-
-    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n]'), function (el) {
-      var value = strings[el.getAttribute('data-i18n')];
-      if (typeof value === 'string') el.innerHTML = value;
-    });
-
-    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-alt]'), function (el) {
-      var value = strings[el.getAttribute('data-i18n-alt')];
-      if (typeof value === 'string') el.setAttribute('alt', value);
-    });
-
-    Array.prototype.forEach.call(document.querySelectorAll('[data-i18n-label]'), function (el) {
-      var value = strings[el.getAttribute('data-i18n-label')];
-      if (typeof value === 'string') el.setAttribute('aria-label', value);
-    });
+    each('[data-i18n]', function (el) { el.innerHTML = get(el.getAttribute('data-i18n')); });
+    each('[data-i18n-alt]', function (el) { el.setAttribute('alt', get(el.getAttribute('data-i18n-alt'))); });
+    each('[data-i18n-label]', function (el) { el.setAttribute('aria-label', get(el.getAttribute('data-i18n-label'))); });
 
     buttons.forEach(function (btn) {
       var on = btn.getAttribute('data-lang') === lang;
@@ -75,11 +77,24 @@
   /* English is the default: only an explicit ?lang= or a remembered choice changes it. */
   apply(fromQuery() || stored() || DEFAULT);
 
+  /* ---------- Project filter ---------- */
+
+  var filters = Array.prototype.slice.call(document.querySelectorAll('.filters [data-filter]'));
+  filters.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var cat = btn.getAttribute('data-filter');
+      filters.forEach(function (b) { b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'); });
+      each('.grid .item', function (item) {
+        item.hidden = cat !== 'all' && item.getAttribute('data-cat') !== cat;
+      });
+    });
+  });
+
   /* ---------- Reveal on scroll ---------- */
 
   if (reduced || !('IntersectionObserver' in window)) return;
 
-  root.className += ' js';
+  root.classList.add('js-reveal');
 
   var observer = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
@@ -89,7 +104,5 @@
     });
   }, { rootMargin: '0px 0px -8% 0px', threshold: 0.05 });
 
-  Array.prototype.forEach.call(document.querySelectorAll('.reveal'), function (el) {
-    observer.observe(el);
-  });
+  each('.reveal', function (el) { observer.observe(el); });
 })();
