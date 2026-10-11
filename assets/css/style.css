@@ -480,6 +480,8 @@ html:not(.js) .filters { display: none; }
 .edu h3 { font-size: 1.02rem; margin-bottom: .15rem; letter-spacing: -0.01em; }
 .edu .org { margin: 0; }
 
+.edu-logos { justify-content: flex-start; margin-top: 1.75rem; gap: 1.25rem 2rem; }
+
 .chips { display: flex; flex-wrap: wrap; gap: .45rem; }
 .chips li {
   font-size: .82rem;
