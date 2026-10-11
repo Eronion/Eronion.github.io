@@ -71,6 +71,11 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 ::selection { background: var(--accent-sf); color: var(--ink); }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
 
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
 .skip-link {
   position: absolute; left: -9999px; top: 0;
   padding: .6rem 1rem; background: var(--accent); color: var(--on-accent);
@@ -281,6 +286,16 @@ html:not(.js-i18n) .lang { display: none; }
 }
 .tile:hover { transform: translateY(-3px); }
 .tile-wide { grid-column: span 4; }
+
+.tile-brand { margin-bottom: .9rem; }
+.brand-mark {
+  display: block;
+  width: min(15rem, 100%); height: 2rem;
+  background: var(--ink);
+  -webkit-mask-position: left center; mask-position: left center;
+  -webkit-mask-size: contain; mask-size: contain;
+  -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat;
+}
 .tile-half { grid-column: span 3; }
 
 .tile-org {
