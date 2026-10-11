@@ -1,5 +1,5 @@
 /* Brandon Willy Viglianisi — personal site
-   Hand-written, no framework. Light and dark follow the system.
+   Hand-written, no framework. Light and dark follow the system, with a manual toggle.
    References: Apple HIG (type-led hierarchy, generous space, content first) and
    Material 3 (tonal surfaces, rounded containers, clear colour roles). */
 
@@ -24,10 +24,12 @@
   --pad: clamp(1rem, 5vw, 3rem);
   --r-lg: 28px;
   --r-md: 20px;
+  color-scheme: light;
 }
 
+/* Dark: follows the system unless the visitor picked a theme with the toggle. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme="light"]) {
     --bg:         #000000;
     --bg-alt:     #0d0d0e;
     --surface:    #161618;
@@ -40,7 +42,23 @@
     --on-accent:  #04201a;
     --art-fill:   #232327;
     --shadow:     none;
+    color-scheme: dark;
   }
+}
+:root[data-theme="dark"] {
+  --bg:     #000000;
+  --bg-alt:   #0d0d0e;
+  --surface:  #161618;
+  --ink:    #f5f5f7;
+  --ink-soft:   #b4b4ba;
+  --ink-faint:  #86868b;
+  --line:     #2a2a2d;
+  --accent:   #7fd1b9;
+  --accent-sf:  #12302a;
+  --on-accent:  #04201a;
+  --art-fill:   #232327;
+  --shadow:   none;
+  color-scheme: dark;
 }
 
 *, *::before, *::after { box-sizing: border-box; }
@@ -131,6 +149,29 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 }
 .lang button:hover { color: var(--ink); }
 .lang button.on { color: var(--ink); background: var(--surface); box-shadow: 0 1px 3px rgb(0 0 0 / .12); }
+
+.tools { display: flex; align-items: center; gap: .5rem; }
+
+.theme {
+  display: grid; place-items: center;
+  width: 2rem; height: 2rem;
+  padding: 0;
+  color: var(--ink-soft);
+  background: var(--bg-alt);
+  border: 0; border-radius: 50%;
+  cursor: pointer;
+  transition: color .2s, background .2s;
+}
+.theme:hover { color: var(--ink); }
+.theme svg { width: 1rem; height: 1rem; }
+.theme .i-sun { display: none; }
+:root[data-theme="dark"] .theme .i-sun { display: block; }
+:root[data-theme="dark"] .theme .i-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .theme .i-sun { display: block; }
+  :root:not([data-theme="light"]) .theme .i-moon { display: none; }
+}
+html:not(.js) .theme { display: none; }
 
 /* Without JS there is nothing to switch to: English is the page itself. */
 html:not(.js-i18n) .lang { display: none; }

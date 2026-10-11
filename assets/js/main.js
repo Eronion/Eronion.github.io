@@ -77,6 +77,44 @@
   /* English is the default: only an explicit ?lang= or a remembered choice changes it. */
   apply(fromQuery() || stored() || DEFAULT);
 
+  /* ---------- Theme ---------- */
+
+  var themeBtn = document.querySelector('.theme');
+  var darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
+  var themeMeta = Array.prototype.slice.call(document.querySelectorAll('meta[name="theme-color"]'));
+
+  function isDark() {
+    var chosen = root.getAttribute('data-theme');
+    return chosen ? chosen === 'dark' : darkQuery.matches;
+  }
+
+  function syncTheme() {
+    var dark = isDark();
+    if (themeBtn) themeBtn.setAttribute('aria-pressed', dark ? 'true' : 'false');
+    /* An explicit choice overrides the media-scoped theme-color tags. */
+    themeMeta.forEach(function (meta) {
+      if (!meta.dataset.media) meta.dataset.media = meta.getAttribute('media') || '';
+      if (root.getAttribute('data-theme')) {
+        meta.removeAttribute('media');
+        meta.setAttribute('content', dark ? '#000000' : '#fbfbfd');
+      } else {
+        meta.setAttribute('media', meta.dataset.media);
+        meta.setAttribute('content', meta.dataset.media.indexOf('dark') !== -1 ? '#000000' : '#fbfbfd');
+      }
+    });
+  }
+
+  if (themeBtn) {
+    themeBtn.addEventListener('click', function () {
+      var next = isDark() ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch (e) { /* private mode: ignore */ }
+      syncTheme();
+    });
+  }
+  if (darkQuery.addEventListener) darkQuery.addEventListener('change', syncTheme);
+  syncTheme();
+
   /* ---------- Project filter ---------- */
 
   var filters = Array.prototype.slice.call(document.querySelectorAll('.filters [data-filter]'));

@@ -13,6 +13,7 @@ window.I18N = {
 
     'skip': 'Vai al contenuto',
     'lang.label': 'Lingua',
+    'theme.label': 'Tema scuro',
     'nav.work': 'Lavori',
     'nav.projects': 'Progetti',
     'nav.experience': 'Esperienza',
@@ -138,6 +139,7 @@ window.I18N = {
 
     'skip': 'Zum Inhalt springen',
     'lang.label': 'Sprache',
+    'theme.label': 'Dunkles Design',
     'nav.work': 'Arbeiten',
     'nav.projects': 'Projekte',
     'nav.experience': 'Erfahrung',
@@ -263,6 +265,7 @@ window.I18N = {
 
     'skip': 'Ir al contenido',
     'lang.label': 'Idioma',
+    'theme.label': 'Modo oscuro',
     'nav.work': 'Trabajos',
     'nav.projects': 'Proyectos',
     'nav.experience': 'Experiencia',
